@@ -1,12 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+function Header(props){
+    return (
+        <div className="header">
+            <h1 className="header-heading" >{props.heading.toUpperCase()} </h1>
+        </div>
+    );
+}
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class PhoneDirectory extends React.Component{
+    render(){
+        
+        
+        return(
+            <div className="main-container">
+                <div className="component-container">
+                    <Header heading="Phone Directory"/>
+                    <div className="component-body-container">
+                        <a href="/add" className="add">Add</a>
+                        <div className="grid-container heading-container">
+                            <h3>Name</h3>
+                            <h3>Phone</h3>
+                        </div>
+                        <div className="grid-container">
+                            <p>Ermyas</p>
+                            <p>1224343434</p>
+                            <p className="delete">Delete</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );   
+    }
+}
+//======================================
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+    <PhoneDirectory/>,
+    document.getElementById('root')
+);
